@@ -72,7 +72,18 @@ class LinkedList {
         }
         return false;
     }
-}
+
+    find(value) {
+        let current = this.head;
+        for (let index = 0; index < this.size; index++) {
+            if (current.value === value) {
+                return index;
+            } else {
+                current = current.nextNode;
+            }
+        }
+        return null;
+}}
 
 class Node {
     constructor(value = null, nextNode = null) {
@@ -97,3 +108,4 @@ console.log(ll);
 ll.tail();
 console.log(ll.contains(100));
 console.log(ll.contains(30));
+console.log(ll.find(100));
