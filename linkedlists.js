@@ -33,11 +33,31 @@ class LinkedList {
     }
 
     tail() {
-        return this.next;
+        let current = this.head;
+        while (current.nextNode !== null) {
+            current = current.nextNode;
+        }
+        console.log(current);
+        return current;
     }
 
-    print() {
+    at(index) {
+        let current = this.head;
+        for (let i = 0; i < index; i++) {
+            current = current.nextNode;
+        }
+        return current;
+    }
 
+    pop() {
+        let previous;
+        let current = this.head;
+        while (current.nextNode !== null) {
+            previous = current;
+            current = current.nextNode;
+        }
+        previous.nextNode = null;
+        this.size--;
     }
 }
 
@@ -54,5 +74,11 @@ ll.prepend(100);
 ll.prepend(200);
 ll.prepend(300);
 ll.append(400);
+ll.append(600);
 
+// [300, 200, 100, 400, 600]
+
+ll.pop();
+ll.pop();
 console.log(ll);
+ll.tail();
