@@ -59,6 +59,19 @@ class LinkedList {
         previous.nextNode = null;
         this.size--;
     }
+
+    contains(value) {
+        let current = this.head;
+        if (current.value === value) {
+            return true
+        } while (current.nextNode !== null) {
+            current = current.nextNode;
+            if (current.value === value) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 class Node {
@@ -82,3 +95,5 @@ ll.pop();
 ll.pop();
 console.log(ll);
 ll.tail();
+console.log(ll.contains(100));
+console.log(ll.contains(30));
